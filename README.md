@@ -47,7 +47,7 @@ Below is an example code for simple usage, without using your own account or gen
 ```python3
 import perplexity
 
-perplexity_cli = perplexity.Client()
+perplexity_cli = TEST.Client()
 
 # mode = ['auto', 'pro', 'reasoning', 'deep research']
 # model = model for mode, which can only be used in own accounts, that is {
@@ -62,7 +62,8 @@ perplexity_cli = perplexity.Client()
 # language = ISO 639 code of language you want to use
 # follow_up = last query info for follow-up queries, you can directly pass response from a query, look at second example below
 # incognito = Enables incognito mode, for people who are using their own account
-resp = perplexity_cli.search('Your query here', mode='auto', model=None, sources=['web'], files={}, stream=False, language='en-US', follow_up=None, incognito=False)
+resp = perplexity_cli.search('Your query here', mode='auto', model=None, sources=['web'], files={}, stream=False,
+                             language='en-US', follow_up=None, incognito=False)
 print(resp)
 
 # second example to show how to use follow-up queries and stream response
@@ -75,13 +76,17 @@ And this is how you use your own account, you need to get your cookies in order 
 ```python3
 import perplexity
 
-perplexity_cookies = { 
-    <your cookies here>
+perplexity_cookies = {
+                     < your
+cookies
+here >
 }
 
-perplexity_cli = perplexity.Client(perplexity_cookies)
+perplexity_cli = TEST.Client(perplexity_cookies)
 
-resp = perplexity_cli.search('Your query here', mode='reasoning', model='o3-mini', sources=['web'], files={'myfile.txt': open('file.txt').read()}, stream=False, language='en-US', follow_up=None, incognito=False)
+resp = perplexity_cli.search('Your query here', mode='reasoning', model='o3-mini', sources=['web'],
+                             files={'myfile.txt': open('file.txt').read()}, stream=False, language='en-US',
+                             follow_up=None, incognito=False)
 print(resp)
 ```
 
@@ -90,14 +95,18 @@ And finally account generating, you need to get cookies for [emailnator](https:/
 ```python3
 import perplexity
 
-emailnator_cookies = { 
-    <your cookies here>
+emailnator_cookies = {
+                     < your
+cookies
+here >
 }
 
-perplexity_cli = perplexity.Client()
-perplexity_cli.create_account(emailnator_cookies) # Creates a new gmail, so your 5 pro queries will be renewed.
+perplexity_cli = TEST.Client()
+perplexity_cli.create_account(emailnator_cookies)  # Creates a new gmail, so your 5 pro queries will be renewed.
 
-resp = perplexity_cli.search('Your query here', mode='reasoning', model=None, sources=['web'], files={'myfile.txt': open('file.txt').read()}, stream=False, language='en-US', follow_up=None, incognito=False)
+resp = perplexity_cli.search('Your query here', mode='reasoning', model=None, sources=['web'],
+                             files={'myfile.txt': open('file.txt').read()}, stream=False, language='en-US',
+                             follow_up=None, incognito=False)
 print(resp)
 ```
 
@@ -107,7 +116,7 @@ print(resp)
 ```python3
 import perplexity
 
-labs_cli = perplexity.LabsClient()
+labs_cli = TEST.LabsClient()
 
 # model = ['r1-1776', 'sonar-pro', 'sonar', 'sonar-reasoning-pro', 'sonar-reasoning']
 # stream = returns a generator when enabled and just final response when disabled
